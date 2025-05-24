@@ -80,8 +80,9 @@ void setup() {
 void loop() {
   // No loop action needed
 }
+
 ---
----
+
 
 ## 🖼️ Screenshots  
 _Coming soon!_
