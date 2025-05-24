@@ -1,45 +1,57 @@
-# Arduino LCD Display – Custom Character Example
+# 📺 Arduino LCD Display – Custom Character Example
 
-**A simple Arduino project that demonstrates how to create and display a custom character (Polish letter "ś") on an I2C LCD.**
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
+[![Language: C++](https://img.shields.io/badge/Language-C%2B%2B-blue.svg)](https://isocpp.org/)  
+[![Platform: Arduino](https://img.shields.io/badge/Platform-Arduino-lightgrey.svg)](https://www.arduino.cc/)
 
-## Description
+---
 
-This project displays the name **"Adrian Leśniak"** on a 16x2 I2C LCD screen connected to an Arduino board. Since standard LCD character sets do not include certain Polish characters like **"ś"**, the project defines a custom character to render it properly.
+## 📋 Description  
+This project demonstrates how to create and display a custom character (Polish letter **"ś"**) on a 16x2 I2C LCD using an Arduino. Since standard LCD character sets don’t support some Polish letters, a custom symbol is defined and used to properly display the name **"Adrian Leśniak"**.
 
-The display uses the `LiquidCrystal_I2C` library to communicate via the I2C protocol.
+The LiquidCrystal_I2C library facilitates communication with the LCD via the I2C protocol, enabling clean text alignment and backlight control.
 
-## Components Required
+---
 
-- Arduino board (e.g., Uno, Nano)
-- I2C 16x2 LCD display (address: `0x27`)
-- Breadboard and jumper wires
-- USB cable for programming
+## 🛠️ Components Required
 
-## Features
+| Component                | Quantity |
+|-------------------------|----------|
+| Arduino board (Uno, Nano)| 1        |
+| I2C 16x2 LCD display     | 1        |
+| Breadboard & jumper wires| As needed|
+| USB cable                | 1        |
 
-- ✅ I2C LCD control using `LiquidCrystal_I2C`
-- ✅ Display of Polish characters using custom symbols
-- ✅ Backlight enabled
-- ✅ Clean screen and proper text alignment
+---
 
-## Wiring
+## 🔌 Wiring
 
-| LCD Pin | Arduino Pin |
-|---------|-------------|
-| GND     | GND         |
-| VCC     | 5V          |
+| LCD Pin | Arduino Pin    |
+|---------|---------------|
+| GND     | GND           |
+| VCC     | 5V            |
 | SDA     | A4 (Uno/Nano) |
 | SCL     | A5 (Uno/Nano) |
 
-> ⚠️ Pin configuration may differ for other Arduino models (e.g., Mega, Leonardo).
+⚠️ *Pin mapping may vary on other Arduino models (Mega, Leonardo, etc.).*
 
-## Code Overview
+---
+
+## 💡 Features  
+✅ I2C LCD control with LiquidCrystal_I2C library  
+✅ Custom character creation for Polish "ś"  
+✅ Backlight enabled for better visibility  
+✅ Clear and aligned text display  
+
+---
+
+## 💻 Code Overview
 
 ```cpp
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-LiquidCrystal_I2C lcd(0x27, 16, 2); // Set LCD I2C address
+LiquidCrystal_I2C lcd(0x27, 16, 2); // LCD I2C address
 
 // Custom character for Polish "ś"
 byte customChar[8] = {
@@ -54,35 +66,48 @@ byte customChar[8] = {
 };
 
 void setup() {
-  lcd.init();            // Initialize LCD
-  lcd.backlight();       // Enable backlight
-  lcd.createChar(0, customChar); // Define custom char
+  lcd.init();              // Initialize LCD
+  lcd.backlight();         // Turn on backlight
+  lcd.createChar(0, customChar); // Define custom char at position 0
 
-  lcd.clear();           // Clear screen
-  lcd.setCursor(0,0);    
-  lcd.print("Adrian Le"); // Print part of the name
-  lcd.write(byte(0));     // Insert "ś"
-  lcd.print("niak");      // Print the rest
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Adrian Le");
+  lcd.write(byte(0));      // Print custom "ś"
+  lcd.print("niak");
 }
 
 void loop() {
-  // No action needed in the main loop
+  // No loop action needed
 }
-```
+---
+---
 
-## Installation
-
-1. Install the required library via Arduino IDE:
-   - Go to **Tools > Manage Libraries**
-   - Search for `LiquidCrystal_I2C` and install it (by Frank de Brabander or compatible)
-
-2. Upload the code to your Arduino board.
-
-## License
-
-This project is open-source and released under the MIT License.
+## 🖼️ Screenshots  
+_Coming soon!_
 
 ---
 
-> 🛠️ Customize this project further by adding more custom characters or dynamic messages!
+## ⚙️ Installation  
+1. Open Arduino IDE.  
+2. Navigate to **Tools > Manage Libraries**.  
+3. Search for **LiquidCrystal_I2C** and install it (by Frank de Brabander or compatible).  
+4. Connect your Arduino board and upload the provided code.  
+5. Verify the correct display of the name with the Polish character **"ś"** on the LCD.
+
+---
+
+## 📄 License  
+This project is open-source and released under the [MIT License](https://opensource.org/licenses/MIT).  
+See the LICENSE file for full details.
+
+---
+
+## 👨‍💻 Author  
+**Adrian Leśniak**  
+Software Developer
+
+---
+
+💡 Enhance this project by adding more custom characters or dynamic LCD messages!
 
