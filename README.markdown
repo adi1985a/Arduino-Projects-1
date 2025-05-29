@@ -87,7 +87,12 @@ void loop() {
 
 
 ## 🖼️ Screenshots  
-_Coming soon!_
+
+<p align="center">
+  <img src="screenshots\20240411_210957.jpg" width="300"/>
+  <img src="screenshots\20240411_211024.jpg" width="300"/>
+  <img src="screenshots\20240411_211130.jpg" width="300"/>
+</p>
 
 ---
 
