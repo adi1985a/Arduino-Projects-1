@@ -11,6 +11,7 @@ This project demonstrates how to create and display a custom character (Polish l
 
 The LiquidCrystal_I2C library facilitates communication with the LCD via the I2C protocol, enabling clean text alignment and backlight control.
 
+![Demo GIF](screenshots/1.gif)
 ---
 
 ## 🛠️ Components Required
